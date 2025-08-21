@@ -1,31 +1,8 @@
-# Projeto DSList - Intensivão Java Spring
+# Projeto Java Spring
 
-**1. Perdeu alguma aula ou material de apoio?**
 
-Inscreva-se para receber no seu email:
+![Modelo de domínio DSList](https://github.com/Vsmergulhao/dslist/blob/main/modelo/dslist-model.png)
 
-https://devsuperior.com.br
-
-    ATENÇÃO: os conteúdos ficarão disponíveis somente até domingo. Então organize-se, e bora pra cima! 
-
-**2. Tem alguma dúvida?**
-
-Envie uma mensagem pra gente no email que chegou pra você no ato da sua inscrição.
-
-## Calendário
-
-Os conteúdos ficarão temporariamente disponíveis no nosso canal de eventos. Ative o lembrete:
-
-https://www.youtube.com/@DevsuperiorJavaSpring
-
-| Dia / horário  | Conteúdo |
-| ------------- | ------------- |
-| Segunda-feira 20h30 | Aula 1: Projeto estruturado |
-| Terça-feira 20h30  | Aula 2: Modelo de domínio |
-| Quarta-feira 20h30 | Aula 3: Deploy e caso de uso |
-| Quinta-feira 20h30 | Aula 4: Endpoint especial |
-| Sexta-feira 20h30 | Aula 5: Resumão e reforço do aprendizado |
-| Domingo 16h00 | Oficina: Avançando na modelagem de dados  |
 
 ## Trechos de código
 
@@ -73,7 +50,7 @@ public class WebConfig {
 
 	@Value("${cors.origins}")
 	private String corsOrigins;
-	
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -83,7 +60,7 @@ public class WebConfig {
 			}
 		};
 	}
-	
+
 }
 ```
 
@@ -91,7 +68,7 @@ public class WebConfig {
 
 ```java
 @Query(nativeQuery = true, value = """
-	SELECT tb_game.id, tb_game.title, tb_game.game_year AS `year`, tb_game.img_url AS imgUrl, 
+	SELECT tb_game.id, tb_game.title, tb_game.game_year AS `year`, tb_game.img_url AS imgUrl,
 	tb_game.short_description AS shortDescription, tb_belonging.position
 	FROM tb_game
 	INNER JOIN tb_belonging ON tb_game.id = tb_belonging.game_id
