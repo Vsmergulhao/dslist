@@ -43,6 +43,12 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 ```
 
+### Acesso ao banco H2
+```
+http://localhost:8080/h2-console
+
+```
+
 ### WebConfig
 
 ```java

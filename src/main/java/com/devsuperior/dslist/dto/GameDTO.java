@@ -25,70 +25,53 @@ public class GameDTO {
 		BeanUtils.copyProperties(entity, this);
     }
 
-    private Long getId() {
+    // public GameDTO(Game entity) {
+    //     id = entity.getId();
+    //     title = entity.getTitle();
+    //     year = entity.getYear();
+    //     genre = entity.getGenre();
+    //     platforms = entity.getPlatforms();
+    //     score = entity.getScore();
+    //     imgUrl = entity.getImgUrl();
+    //     shortDescription = entity.getShortDescription();
+    //     longDescription = entity.getLongDescription();
+    // }
+
+    public Long getId() {
         return id;
     }
 
-    private String getTitle() {
+    public String getTitle() {
         return title;
     }
-    private Integer getYear() {
+
+    public Integer getYear() {
         return year;
     }
-    private String getGenre() {
+
+    public String getGenre() {
         return genre;
     }
 
-    private String getPlatforms() {
+    public String getPlatforms() {
         return platforms;
     }
-    private Double getScore() {
+
+    public Double getScore() {
         return score;
     }
-    private String getImgUrl() {
+
+    public String getImgUrl() {
         return imgUrl;
     }
-    private String getShortDescription() {
+
+    public String getShortDescription() {
         return shortDescription;
     }
-    private String getLongDescription() {
+
+    public String getLongDescription() {
         return longDescription;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public void setPlatforms(String platforms) {
-        this.platforms = platforms;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
-
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
-    }
 
 }
