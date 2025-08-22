@@ -20,14 +20,18 @@ public class GameService {
 	private GameRepository gameRepository;
 
 	@Transactional(readOnly = true)
-	public List<GameMinDTO> findAll() {
-		List<Game> result = gameRepository.findAll();
-		return result.stream().map(GameMinDTO::new).toList();
+	public GameDTO findById(Long id) {
+		// Game result = gameRepository.findById(id).orElseThrow(() -> new RuntimeException("Game not found"));
+		Game result = gameRepository.findById(id).get();
+
+		GameDTO gameDTO = new GameDTO(result);
+
+		return gameDTO;
 	}
 
 	@Transactional(readOnly = true)
-	public GameDTO findById(Long id) {
-		Game result = gameRepository.findById(id).orElseThrow(() -> new RuntimeException("Game not found"));
-		return new GameDTO(result);
+	public List<GameMinDTO> findAll() {
+		List<Game> result = gameRepository.findAll();
+		return result.stream().map(GameMinDTO::new).toList();
 	}
 }
