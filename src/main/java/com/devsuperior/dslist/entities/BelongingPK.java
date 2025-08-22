@@ -1,5 +1,7 @@
 package com.devsuperior.dslist.entities;
 
+import java.util.Objects;
+
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -43,7 +45,7 @@ public class BelongingPK {
 
     @Override
     public int hashCode() {
-        return 31 * (game != null ? game.hashCode() : 0) + (gameList != null ? gameList.hashCode() : 0);
+        return Objects.hash(game, gameList);
     }
 
     @Override

@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.dto.GameDTO;
 import com.devsuperior.dslist.entities.Game;
 import com.devsuperior.dslist.repositories.GameRepository;
+import com.devsuperior.dslist.projections.GameMinProjection;
 
 
 
@@ -23,15 +25,18 @@ public class GameService {
 	public GameDTO findById(Long id) {
 		// Game result = gameRepository.findById(id).orElseThrow(() -> new RuntimeException("Game not found"));
 		Game result = gameRepository.findById(id).get();
-
-		GameDTO gameDTO = new GameDTO(result);
-
-		return gameDTO;
+		return new GameDTO(result);
 	}
 
 	@Transactional(readOnly = true)
 	public List<GameMinDTO> findAll() {
 		List<Game> result = gameRepository.findAll();
-		return result.stream().map(GameMinDTO::new).toList();
+		return result.stream().map(x -> new GameMinDTO(x)).toList();
+	}
+
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByGameList(Long listId) {
+		List<GameMinProjection> games = gameRepository.searchGameList(listId);
+		return games.stream().map(x -> new GameMinDTO(x)).toList();
 	}
 }
