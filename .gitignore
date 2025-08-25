@@ -1,0 +1,7 @@
+# Ignore all .class files
+*.class
+
+# Ignore the .data directory inside the docker directory
+/docker/.data/
+/docker/.data/pgadmin/
+/docker/.data/postgres/
