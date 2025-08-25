@@ -22,7 +22,7 @@ public class GameDTO {
 
     public GameDTO(Game entity) {
         //Copia os mesmos atributos do objeto Game para o DTO
-		BeanUtils.copyProperties(entity, this);
+		BeanUtils.copyProperties(entity, this);//Recupera os atributos do entity e copia para o this (objeto atual)
     }
 
     // public GameDTO(Game entity) {
