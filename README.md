@@ -57,7 +57,11 @@ HostName: pg-docker
 Porta: 5432 --> Interna do container 5433 -> Fora do container
 User Name: postgres
 Senha: 1234567
+```
 
+#### Script de Criação base de dados
+```
+https://github.com/Vsmergulhao/dslist/blob/main/modelo/create.sql
 ```
 
 ### WebConfig
@@ -131,7 +135,7 @@ INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 10, 4);
 ```
 ### Script Docker Compose Postgres
 ```
-https://gist.github.com/Vmergulhao
+https://github.com/Vsmergulhao/dslist/blob/main/docker/docker-compose.yml
 
 ```
 ### application-dev.properties

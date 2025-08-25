@@ -1,6 +1,3 @@
-# Ignore all .class files
-*.class
-
 # Ignore the .data directory inside the docker directory
 docker/**/**
 
