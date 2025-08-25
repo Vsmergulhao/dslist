@@ -48,6 +48,17 @@ spring.jpa.properties.hibernate.format_sql=true
 http://localhost:8080/h2-console
 
 ```
+### Acesso ao banco PostGres Admin
+```
+http://localhost:5050/browser/
+
+
+HostName: pg-docker
+Porta: 5432 --> Interna do container 5433 -> Fora do container
+User Name: postgres
+Senha: 1234567
+
+```
 
 ### WebConfig
 
