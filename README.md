@@ -1,9 +1,14 @@
 # Projeto Java Spring
 
+
+
 # Modelo de dados
 
 ![Modelo de domínio DSList](https://github.com/Vsmergulhao/dslist/blob/main/modelo/dslist-model.png)
 
+# Padrão de camadas
+
+![Padrão de camadas](https://github.com/Vsmergulhao/dslist/blob/main/modelo/padra%C3%A3o%20de%20camadas.png)
 
 ## Trechos de código
 
@@ -60,9 +65,9 @@ Senha: 1234567
 ```
 
 #### Script de Criação base de dados
-```
-https://github.com/Vsmergulhao/dslist/blob/main/modelo/create.sql
-```
+
+![Script](https://github.com/Vsmergulhao/dslist/blob/main/modelo/create.sql)
+
 
 ### WebConfig
 
@@ -133,11 +138,11 @@ INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 8, 2);
 INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 9, 3);
 INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 10, 4);
 ```
-### Script Docker Compose Postgres
-```
-https://github.com/Vsmergulhao/dslist/blob/main/docker/docker-compose.yml
+# Script Docker Compose Postgres
 
-```
+![Script](https://github.com/Vsmergulhao/dslist/blob/main/docker/docker-compose.yml)
+
+
 ### application-dev.properties
 
 ```
