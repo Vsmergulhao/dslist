@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dslist.dto.GameListDTO;
 import com.devsuperior.dslist.dto.GameMinDTO;
+import com.devsuperior.dslist.dto.ReplacementDTO;
 import com.devsuperior.dslist.services.GameListService;
 import com.devsuperior.dslist.services.GameService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping(value = "/lists")
@@ -34,4 +38,12 @@ public class GameListController {
 		List<GameListDTO> result = gameListService.findAll();
 		return result;
 	}
+
+	@PostMapping(value = "/{listId}/replacement")
+	//@RequestBody ReplacementDTO body recupera da request o objeto json e converte para o objeto java
+	public void move(@PathVariable Long listId, @RequestBody ReplacementDTO body) {
+		gameListService.move(listId, body.getSourceIndex(), body.getDestinationIndex());
+
+	}
+
 }

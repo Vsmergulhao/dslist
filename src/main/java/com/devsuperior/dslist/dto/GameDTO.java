@@ -20,22 +20,22 @@ public class GameDTO {
 
     }
 
-    public GameDTO(Game entity) {
-        //Copia os mesmos atributos do objeto Game para o DTO
-		BeanUtils.copyProperties(entity, this);//Recupera os atributos do entity e copia para o this (objeto atual)
-    }
-
     // public GameDTO(Game entity) {
-    //     id = entity.getId();
-    //     title = entity.getTitle();
-    //     year = entity.getYear();
-    //     genre = entity.getGenre();
-    //     platforms = entity.getPlatforms();
-    //     score = entity.getScore();
-    //     imgUrl = entity.getImgUrl();
-    //     shortDescription = entity.getShortDescription();
-    //     longDescription = entity.getLongDescription();
+    //     //Copia os mesmos atributos do objeto Game para o DTO
+	// 	BeanUtils.copyProperties(entity, this);//Recupera os atributos do entity e copia para o this (objeto atual)
     // }
+
+    public GameDTO(Game entity) {
+        id = entity.getId();
+        title = entity.getTitle();
+        year = entity.getYear();
+        genre = entity.getGenre();
+        platforms = entity.getPlatforms();
+        score = entity.getScore();
+        imgUrl = entity.getImgUrl();
+        shortDescription = entity.getShortDescription();
+        longDescription = entity.getLongDescription();
+    }
 
     public Long getId() {
         return id;

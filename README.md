@@ -1,6 +1,6 @@
 # Projeto Java Spring
 
-
+Projeto backend utilizando Java (21) com Java Spring Framework ![link](https://spring.io/guides/gs/spring-boot) e banco de dados H2 (local) e Postgres para teste e produção
 
 # Modelo de dados
 
@@ -140,8 +140,14 @@ INSERT INTO tb_belonging (list_id, game_id, position) VALUES (2, 10, 4);
 ```
 # Script Docker Compose Postgres
 
-![Script](https://github.com/Vsmergulhao/dslist/blob/main/docker/docker-compose.yml)
+Crie uma pasta docker no projeto, copie o arquivo de script abaixo para o diretório.
 
+![Script Docker com servidor Postgres e o administrador PostGres](https://github.com/Vsmergulhao/dslist/blob/main/docker/docker-compose.yml)
+
+Excecute o comando abaixo:
+```
+docker compose up -d
+```
 
 ### application-dev.properties
 
