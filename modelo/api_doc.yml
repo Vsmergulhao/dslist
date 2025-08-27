@@ -1,0 +1,190 @@
+openapi: 3.0.0
+info:
+  title: API de manipulação de dados Java Spring
+  version: 1.0.0
+  description: Uma API de exemplo para demonstrar recuperação e atulização de dados.
+tags:
+  - name: Games
+    description: Operações relacionadas a jogos
+    externalDocs:
+      url: "https://example.com/docs/games"
+      description: Documentação adicional sobre jogos
+  - name: Lists
+    description: Operações relacionadas a listas de jogos
+    externalDocs:
+      url: "https://example.com/docs/lists"
+      description: Documentação adicional sobre listas de jogos
+
+
+paths:
+  /games:
+    get:
+      summary: Retorna uma lista de jogos
+      description: Obtém uma lista de todos os jogos disponíveis.
+      responses:
+        '200':
+          description: Lista de jogos retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GameDTO'
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /games/{id}:
+    get:
+      summary: Retorna um jogo por ID
+      description: Obtém os detalhes de um jogo específico pelo seu ID.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: O ID do jogo a ser recuperado
+      responses:
+        '200':
+          description: Jogo retornado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameDTO'
+        '404':
+          description: Jogo não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /lists:
+    get:
+      summary: Retorna uma lista de listas de jogos
+      description: Obtém uma lista de todas as listas de jogos disponíveis.
+      responses:
+        '200':
+          description: Lista de listas retornada com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "Minha Lista de Jogos"
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /lists/{listId}/replacement:
+    post:
+      summary: Atualiza a posição de um jogo em uma lista
+      description: Move um jogo para uma nova posição dentro de uma lista específica.
+      parameters:
+        - in: path
+          name: listId
+          required: true
+          schema:
+            type: integer
+          description: O ID da lista onde o jogo será movido
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceIndex:
+                  type: integer
+                  description: A posição atual do jogo na lista
+                destinationIndex:
+                  type: integer
+                  description: A nova posição do jogo na lista
+              required:
+                - sourceIndex
+                - destinationIndex
+      responses:
+        '200':
+          description: Posição do jogo atualizada com sucesso
+        '400':
+          description: Requisição inválida (por exemplo, índices fora do intervalo)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Lista ou jogo não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Erro interno do servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    GameDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: "The Witcher 3"
+        year:
+          type: integer
+          example: 2015
+        genre:
+          type: string
+          example: "RPG"
+        platforms:
+          type: string
+          example: "PC, PS4, Xbox One"
+        score:
+          type: number
+          format: float
+          example: 9.5
+        imgUrl:
+          type: string
+          example: "http://example.com/witcher3.jpg"
+        shortDescription:
+          type: string
+          example: "An open-world RPG set in a fantasy universe."
+        longDescription:
+          type: string
+          example: "The Witcher 3: Wild Hunt is a story-driven, next-generation open world role-playing game set in a visually stunning fantasy universe full of meaningful choices and impactful consequences."
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Internal server error"
+        code:
+          type: integer
+          example: 500
+        details:
+          type: string
+
+

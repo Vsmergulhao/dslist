@@ -13,6 +13,7 @@ import com.devsuperior.dslist.dto.GameMinDTO;
 import com.devsuperior.dslist.dto.GameDTO;
 import com.devsuperior.dslist.services.GameService;
 
+
 @RestController
 @RequestMapping(value = "/games")
 public class GameController {
