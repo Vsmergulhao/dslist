@@ -10,6 +10,14 @@ Projeto backend utilizando Java (21) com Java Spring Framework ![link](https://s
 
 ![Padrão de camadas](https://github.com/Vsmergulhao/dslist/blob/main/modelo/padra%C3%A3o%20de%20camadas.png)
 
+# Modelo conceitual de objetos
+
+![Modelo conceitual de objetos](https://github.com/Vsmergulhao/dslist/blob/main/modelo/Modelo%20conceitual.png)
+
+# Padrão de criação do projeto Java Spring
+
+![Padrão de criação do projeto](https://github.com/Vsmergulhao/dslist/blob/main/modelo/SprigInitializr.png)
+
 ## Trechos de código
 
 ### Plug-in Maven
